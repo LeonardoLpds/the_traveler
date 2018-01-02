@@ -7,6 +7,7 @@ Player = function(game) {
         this.player.animations.add('walk', [8, 9, 10, 11, 12, 13, 14, 15], 10, true);
         this.player.animations.add('jump', [18, 19, 20, 21, 22, 23, 24, 25], 10, true);
         this.player.animations.add('fall', [28, 29, 30, 31, 32, 33, 34, 35], 10, true);
+        this.player.animations.add('death', [36, 37], 5, true);
     }
 
     this.spawnPlayer = function(x, y){
@@ -24,6 +25,11 @@ Player = function(game) {
         this.player.body.setSize(32,60,16,4);
         this.player.animations.play("idle");
         this.player.anchor.setTo(0.5)
+        
+        // Define método de morte do player
+        this.player.death = function() {
+            //            
+        }
     }
 
     this.move = function(keys) {

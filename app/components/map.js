@@ -2,8 +2,10 @@ Map = function(game) {
     this.game = game;
     this.world = null;
     this.layers = {};
+    
     this.tilesets = ["ground_brown","water","bottom_water","wall_brown","bridge","bottom_brown","slopes_brown", "collisions"];
-    this.tiles = {"block" : 203, "top" : 200, "kill" : 228}
+    this.layers_names = ["water","water_objects","main_back","main_front","bridge_back","bridge_front","collisions"];
+    this.tiles = {"block" : 203, "top" : 200, "kill" : 227}
 
     this.generateWorld = function(){
         // Define cor do fundo
@@ -18,15 +20,9 @@ Map = function(game) {
         }, this);
 
         // Cria todas as layers do mapa
-        this.layers = {
-            "water"         : this.world.createLayer('water'),
-            "water_objects" : this.world.createLayer('water_objects'),
-            "main_back"     : this.world.createLayer('main_back'),
-            "main_front"    : this.world.createLayer('main_front'),
-            "bridge_back"   : this.world.createLayer('bridge_back'),
-            "bridge_front"  : this.world.createLayer('bridge_front'),
-            "collisions"    : this.world.createLayer('collisions'),
-        };
+        this.layers_names.forEach(function(layer){
+            this.layers[layer] = this.world.createLayer(layer);
+        }, this);
 
         // Cria colisões
         this.createCollisions();
@@ -43,12 +39,25 @@ Map = function(game) {
         this.world.setCollision([this.tiles.block], true, this.layers.collisions);
         
         // Seta colisões apenas no topo
+        this.createTopCollisions(this.tiles.top);
+
+        // Zonas de morte
+        this.world.setTileIndexCallback(this.tiles.kill, this.killZone, this, this.layers.collisions);
+    }
+
+    this.killZone = function(obj) {
+        if (obj.key == "player") {
+            obj.death();
+        }
+    }
+
+    this.createTopCollisions = function(tile_key) {
         var x, y, tile;
         for (x = 0; x < this.world.width; x++) {
             for (y = 1; y < this.world.height; y++) {
                 tile = this.world.getTile(x, y, this.layers.collisions);
                 if (tile !== null) {
-                    if (tile.index == this.tiles.top) {
+                    if (tile.index == tile_key) {
                         tile.setCollision(false, false, true, false);
                     }
                 }
