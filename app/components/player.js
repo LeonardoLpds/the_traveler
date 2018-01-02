@@ -19,17 +19,17 @@ Player = function(game) {
 
         // Permite física
         this.game.physics.arcade.enable(this.player);
-        
+
         // Definições do corpo
         this.player.body.gravity.y = 1400;
         this.player.body.setSize(32,60,16,4);
         this.player.animations.play("idle");
-        this.player.anchor.setTo(0.5)
-        
+        this.player.anchor.setTo(0.5);
+
         // Define método de morte do player
-        this.player.death = function() {
-            //            
-        }
+        this.player.death = function(){
+            game.state.start("Game Over", false, false, this);
+        };
     }
 
     this.move = function(keys) {

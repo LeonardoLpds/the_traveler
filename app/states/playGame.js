@@ -1,7 +1,7 @@
-var playGame = function(game){ 
+var playGame = function(game){
     this.map    = new Map(game);
-    this.player = new Player(game); 
-    
+    this.player = new Player(game);
+
     this.keys   = {}
 }
 
@@ -9,7 +9,7 @@ playGame.prototype = {
     create: function () {
         // cria o mundo
         this.map.generateWorld();
-        
+
         // cria o personagem
         this.player.spawnPlayer(100, 0);
 

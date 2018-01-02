@@ -5,12 +5,12 @@ var menu = function(game) {
 menu.prototype = {
     create: function () {
         var newGameText = game.add.text(
-            this.world.centerX, 
-            this.world.centerY, 
-            "Novo Jogo", 
+            this.world.centerX,
+            this.world.centerY,
+            "Novo Jogo",
             this.fontStyle
         );
-        
+
         newGameText.anchor.setTo(0.5);
 
         newGameText.inputEnabled = true;
