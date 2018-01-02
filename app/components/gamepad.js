@@ -32,7 +32,5 @@ Gamepad = function(game) {
 
         // Fixando botões na tela
         for (var button in this.buttons ) { this.buttons[button].fixedToCamera = true; }
-
-        console.log(game.height);
     }
 }

@@ -50,6 +50,7 @@ preload.prototype = {
         // Carregando áudios
         this.game.load.audio("jump", "assets/sounds/effects/jump.ogg");
         this.game.load.audio("death", "assets/sounds/effects/death.ogg");
+        this.game.load.audio("coin", "assets/sounds/effects/coin.ogg");
         this.game.load.audio("jungle_bgm", "assets/sounds/bgm/jungle.ogg");
 
         // Carregando botões
@@ -59,6 +60,9 @@ preload.prototype = {
 
         // Carregando player
         this.game.load.spritesheet('player', 'assets/sprites/traveler.png', 64, 64);
+
+        // Carregando moedas
+        this.game.load.spritesheet('coin', 'assets/sprites/coin_gold.png', 32, 21);
     },
 
     // Diz a aplicação que as fontes foram carregadas

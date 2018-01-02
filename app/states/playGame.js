@@ -1,7 +1,8 @@
 var playGame = function(game){
-    this.map    = new Map(game);
-    this.player = new Player(game);
+    this.map     = new Map(game);
+    this.player  = new Player(game);
     this.gamepad = new Gamepad(game);
+    this.coins   = new Coins(game);
 }
 
 playGame.prototype = {
@@ -11,6 +12,7 @@ playGame.prototype = {
 
         // cria o mundo
         this.map.generateWorld();
+        this.coins.spawnCoins(this.map.world);
 
         // cria o personagem
         this.player.spawnPlayer(100, 0);
@@ -29,6 +31,7 @@ playGame.prototype = {
     update: function() {
         // verifica colisões
         game.physics.arcade.collide(this.player.player, this.map.layers.collisions);
+        game.physics.arcade.overlap(this.player.player, this.coins.group, this.coins.collect, null, this);
 
         // define a camera
         game.camera.follow(this.player.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -42,7 +45,8 @@ playGame.prototype = {
         this.game.sounds = {
             "bgm"   : game.add.audio("jungle_bgm"),
             "jump"  : game.add.audio("jump"),
-            "death" : game.add.audio("death")
+            "death" : game.add.audio("death"),
+            "coin" : game.add.audio("coin", 0.3)
         };
     }
 }
