@@ -52,6 +52,11 @@ preload.prototype = {
         this.game.load.audio("death", "assets/sounds/effects/death.ogg");
         this.game.load.audio("jungle_bgm", "assets/sounds/bgm/jungle.ogg");
 
+        // Carregando botões
+        this.game.load.spritesheet('btn_right', 'assets/sprites/buttons/right.png', 64, 64);
+        this.game.load.spritesheet('btn_left', 'assets/sprites/buttons/right.png', 64, 64);
+        this.game.load.spritesheet('btn_up', 'assets/sprites/buttons/right.png', 64, 64);
+
         // Carregando player
         this.game.load.spritesheet('player', 'assets/sprites/traveler.png', 64, 64);
     },

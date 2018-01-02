@@ -1,5 +1,5 @@
 // Criando o game
-var game = new Phaser.Game(800, 600, Phaser.CANVAS);
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS);
 
 // Adicionando states
 game.state.add("Boot", boot);

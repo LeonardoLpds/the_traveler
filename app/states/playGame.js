@@ -1,6 +1,7 @@
 var playGame = function(game){
     this.map    = new Map(game);
     this.player = new Player(game);
+    this.gamepad = new Gamepad(game);
 }
 
 playGame.prototype = {
@@ -18,11 +19,7 @@ playGame.prototype = {
         game.world.bringToTop(this.map.layers.bridge_front);
 
         // mapeia controles
-        this.keys = {
-            'left' : game.input.keyboard.addKey(Phaser.Keyboard.LEFT),
-            'right' : game.input.keyboard.addKey(Phaser.Keyboard.RIGHT),
-            'up' : game.input.keyboard.addKey(Phaser.Keyboard.UP)
-        }
+        this.gamepad.generateKeys();
 
         // Inicia o BGM
         this.game.sounds.bgm.loop = true;
@@ -37,7 +34,7 @@ playGame.prototype = {
         game.camera.follow(this.player.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
         // verifica movimentos do player
-        this.player.move(this.keys);
+        this.player.move(this.gamepad.keys);
 
     },
 
