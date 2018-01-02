@@ -1,12 +1,13 @@
 var playGame = function(game){
     this.map    = new Map(game);
     this.player = new Player(game);
-
-    this.keys   = {}
 }
 
 playGame.prototype = {
     create: function () {
+        // Carrega os áudios
+        this.addAudios();
+
         // cria o mundo
         this.map.generateWorld();
 
@@ -22,6 +23,10 @@ playGame.prototype = {
             'right' : game.input.keyboard.addKey(Phaser.Keyboard.RIGHT),
             'up' : game.input.keyboard.addKey(Phaser.Keyboard.UP)
         }
+
+        // Inicia o BGM
+        this.game.sounds.bgm.loop = true;
+        this.game.sounds.bgm.play();
     },
 
     update: function() {
@@ -34,5 +39,13 @@ playGame.prototype = {
         // verifica movimentos do player
         this.player.move(this.keys);
 
+    },
+
+    addAudios: function(){
+        this.game.sounds = {
+            "bgm"   : game.add.audio("jungle_bgm"),
+            "jump"  : game.add.audio("jump"),
+            "death" : game.add.audio("death")
+        };
     }
 }

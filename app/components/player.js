@@ -28,12 +28,15 @@ Player = function(game) {
 
         // Define método de morte do player
         this.player.death = function(){
+            game.sounds.bgm.stop();
+            game.sounds.death.play();
             game.state.start("Game Over", false, false, this);
         };
     }
 
-    this.move = function(keys) {
+    this.move = function(keys, sounds) {
         if (keys.up.isDown && this.player.body.onFloor()) {
+            game.sounds.jump.play();
             this.player.body.velocity.y = -500;
         }
         if (keys.left.isDown) {

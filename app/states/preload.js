@@ -47,6 +47,11 @@ preload.prototype = {
         this.game.load.image('slopes_brown', 'assets/tilesets/jungle/slopes_brown.png');
         this.game.load.image('collisions',   'assets/tilesets/collisions.png');
 
+        // Carregando áudios
+        this.game.load.audio("jump", "assets/sounds/effects/jump.ogg");
+        this.game.load.audio("death", "assets/sounds/effects/death.ogg");
+        this.game.load.audio("jungle_bgm", "assets/sounds/bgm/jungle.ogg");
+
         // Carregando player
         this.game.load.spritesheet('player', 'assets/sprites/traveler.png', 64, 64);
     },
