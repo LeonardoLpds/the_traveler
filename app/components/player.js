@@ -8,6 +8,7 @@ Player = function(game) {
         this.player.animations.add('jump', [18, 19, 20, 21, 22, 23, 24, 25], 10, true);
         this.player.animations.add('fall', [28, 29, 30, 31, 32, 33, 34, 35], 10, true);
         this.player.animations.add('death', [36, 37], 5, true);
+        this.player.animations.add('run', [38, 39, 40, 41, 42, 43], 12, true);
     }
 
     this.spawnPlayer = function(x, y){
@@ -40,11 +41,15 @@ Player = function(game) {
             this.player.body.velocity.y = -500;
         }
         if (keys.left.isDown) {
-            this.player.body.velocity.x = -80;
+            if(keys.left.durationUp <= 100) this.player.body.velocity.x = -200;
+            else this.player.body.velocity.x = -100;
+
             this.player.scale.x = -1;
             this.moveAnimation();
         } else if (keys.right.isDown){
-            this.player.body.velocity.x = 80;
+            if(keys.right.durationUp <= 100) this.player.body.velocity.x = 200;
+            else this.player.body.velocity.x = 100;
+
             this.player.scale.x = 1;
             this.moveAnimation();
         } else {
@@ -58,6 +63,8 @@ Player = function(game) {
             this.player.animations.play("jump");
         } else if (this.player.body.velocity.y > 0) {
             this.player.animations.play("fall");
+        } else if (Math.abs(this.player.body.velocity.x) > 100) {
+            this.player.animations.play("run");
         } else {
             this.player.animations.play("walk");
         }

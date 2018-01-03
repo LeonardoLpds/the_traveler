@@ -17,12 +17,12 @@ Gamepad = function(game) {
     this.createButtons = function(){
         // Esquerda
         this.buttons.left = game.add.button(30, game.height - 100, 'btn_left', null, this, 0, 0, 1, 0);
-        this.buttons.left.onInputDown.add(() => this.keys.left.isDown = true, this);
+        this.buttons.left.onInputDown.add(() => this.pressKey(this.buttons.left, this.keys.left), this);
         this.buttons.left.onInputUp.add(() => this.keys.left.isDown = false, this);
 
         // Direita
         this.buttons.right = game.add.button(130, game.height - 100, 'btn_right', null, this, 0, 0, 1, 0);
-        this.buttons.right.onInputDown.add(() => this.keys.right.isDown = true, this);
+        this.buttons.right.onInputDown.add(() => this.pressKey(this.buttons.right, this.keys.right), this);
         this.buttons.right.onInputUp.add(() => this.keys.right.isDown = false, this);
 
         // Cima
@@ -32,5 +32,10 @@ Gamepad = function(game) {
 
         // Fixando botões na tela
         for (var button in this.buttons ) { this.buttons[button].fixedToCamera = true; }
+    }
+
+    this.pressKey = function(button, key){
+        key.isDown = true;
+        key.durationUp = button.input.overDuration();
     }
 }
