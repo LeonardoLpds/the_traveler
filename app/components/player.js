@@ -26,6 +26,7 @@ Player = function(game) {
         this.player.body.setSize(32,60,16,4);
         this.player.animations.play("idle");
         this.player.anchor.setTo(0.5);
+        this.player.body.maxVelocity.y = 1000;
 
         // Define método de morte do player
         this.player.death = function(){

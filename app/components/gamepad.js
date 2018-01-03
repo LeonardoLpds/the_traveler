@@ -60,8 +60,6 @@ Gamepad = function(game) {
     }
 
     this.checkRunKey = function(key){
-        console.log(key.timer.running, key.timer.ms);
-
         if(key.timer.running == false) { key.run = false; key.timer.start(); }
 
         else if(key.timer.ms > 0 && key.timer.ms <= 180){ key.run = true; key.timer.stop(); key.timer.ms = 0;}
