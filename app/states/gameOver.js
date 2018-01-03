@@ -11,6 +11,7 @@ gameOver.prototype = {
     create: function () {
         var old = this.player;
         this.player = game.add.sprite(old.position.x, old.position.y, 'player');
+        game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.player.scale.x = old.scale.x;
         this.player.anchor.setTo(0.5);
         this.player.animations.add('death', [36, 37], 5, true);
