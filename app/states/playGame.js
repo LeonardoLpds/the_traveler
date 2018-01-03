@@ -15,7 +15,8 @@ playGame.prototype = {
         this.coins.spawnCoins(this.map.world);
 
         // cria o personagem
-        this.player.spawnPlayer(100, 0);
+        var object = this.map.world.objects.object_layer.find(function(object){ if(object.name == 'player') return object });
+        this.player.spawnPlayer(object.x, object.y);
 
         // Envia layer para frente do player
         game.world.bringToTop(this.map.layers.bridge_front);
