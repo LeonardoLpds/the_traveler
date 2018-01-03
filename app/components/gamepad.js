@@ -12,6 +12,9 @@ Gamepad = function(game) {
 
         // Mapeando botões da tela
         this.createButtons();
+
+        // Ativa a habilidade de corrida
+        this.enableRun();
     }
 
     this.createButtons = function(){
@@ -32,5 +35,29 @@ Gamepad = function(game) {
 
         // Fixando botões na tela
         for (var button in this.buttons ) { this.buttons[button].fixedToCamera = true; }
+    }
+
+    this.enableRun = function() {
+        //Criando timers
+        this.keys.right.timer = game.time.create();
+        this.keys.left.timer = game.time.create();
+
+        // Direita
+        this.buttons.right.onInputOver.add(function() { this.checkRunKey( this.keys.right ) }, this);
+        this.keys.right.onDown.add(function() { this.checkRunKey( this.keys.right ) }, this);
+
+        // Esquerda
+        this.buttons.left.onInputOver.add(function() { this.checkRunKey( this.keys.left ) }, this);
+        this.keys.left.onDown.add(function() { this.checkRunKey( this.keys.left ) }, this);
+    }
+
+    this.checkRunKey = function(key){
+        console.log(key.timer.running, key.timer.ms);
+
+        if(key.timer.running == false) { key.run = false; key.timer.start(); }
+
+        else if(key.timer.ms > 0 && key.timer.ms <= 180){ key.run = true; key.timer.stop(); key.timer.ms = 0;}
+
+        else { key.run = false; key.timer.stop(); key.timer.ms = 0; key.timer.start();}
     }
 }

@@ -41,13 +41,13 @@ Player = function(game) {
             this.player.body.velocity.y = -500;
         }
         if (keys.left.isDown) {
-            if(keys.left.durationUp <= 100) this.player.body.velocity.x = -200;
+            if(keys.left.run) this.player.body.velocity.x = -200;
             else this.player.body.velocity.x = -100;
 
             this.player.scale.x = -1;
             this.moveAnimation();
         } else if (keys.right.isDown){
-            if(keys.right.durationUp <= 100) this.player.body.velocity.x = 200;
+            if(keys.right.run) this.player.body.velocity.x = 200;
             else this.player.body.velocity.x = 100;
 
             this.player.scale.x = 1;
