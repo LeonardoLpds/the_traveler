@@ -1,6 +1,6 @@
 {
-  "name": "O jogo do Aventureiro",
-  "short_name": "O Aventureiro",
+  "name": "The Traveler",
+  "short_name": "The Traveler - O Viajante",
   "icons": [
     {
       "src": "assets/icons/app-icon-48x48.png",
@@ -43,8 +43,8 @@
   "display": "fullscreen",
   "orientation": "landscape-primary",
   "background_color": "#fff",
-  "theme_color": "#000",
-  "description": "Jogo da jornada do herói do Aventureiro",
+  "theme_color": "#fff",
+  "description": "Não seja um viajante da ilusão",
   "dir": "ltr",
   "lang": "pt-BR"
 }
