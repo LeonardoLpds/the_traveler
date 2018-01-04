@@ -47,6 +47,16 @@ preload.prototype = {
         this.game.load.image('slopes_brown', 'assets/tilesets/jungle/slopes_brown.png');
         this.game.load.image('collisions',   'assets/tilesets/collisions.png');
 
+        // Carregando nuvens
+        this.game.load.image('cloud_1', 'assets/images/bg_cloud01.png');
+        this.game.load.image('cloud_2', 'assets/images/bg_cloud02.png');
+        this.game.load.image('cloud_3', 'assets/images/bg_cloud03.png');
+        this.game.load.image('cloud_4', 'assets/images/bg_cloud04.png');
+        this.game.load.image('cloud_5', 'assets/images/bg_cloud05.png');
+        this.game.load.image('cloud_6', 'assets/images/bg_cloud06.png');
+        this.game.load.image('cloud_7', 'assets/images/bg_cloud07.png');
+        this.game.load.image('cloud_8', 'assets/images/bg_cloud08.png');
+
         // Carregando áudios
         this.game.load.audio("jump", "assets/sounds/effects/jump.ogg");
         this.game.load.audio("death", "assets/sounds/effects/death.ogg");

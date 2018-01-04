@@ -7,9 +7,18 @@ Map = function(game) {
     this.layers_names = ["water","water_objects","main_back","main_front","bridge_back","bridge_front","collisions"];
     this.tiles = {"block" : 203, "top" : 200, "kill" : 227}
 
+    this.clouds_positions = [{x:100, y:0, id:1},{x:300, y:100, id:2},{x:800, y:100,id:3},{x:1000, y:200,id:7},{x:1400, y:0,id:5},{x:1600, y:0,id:8},{x:1700, y:100,id:6},{x:2200, y:50,id:6},{x:2500, y:-30,id:8},{x:3000, y:200,id:2}]
+
     this.generateWorld = function(){
         // Define cor do fundo
         this.game.stage.setBackgroundColor("#7ec0ee");
+
+        // Cria as nuvens
+        this.clouds = this.game.add.group();
+        this.clouds_positions.forEach(function(position){
+            var cloud = this.game.add.image(position.x, position.y, 'cloud_'+position.id, 0, this.clouds);
+            this.game.add.tween(cloud).to({y : position.y + (Math.floor(Math.random() * 20) + 10)}, Math.floor(Math.random() * 2500) + 1800, null, true, 0, Number.MAX_VALUE, true);
+        }, this);
 
         // Carrega o mapa
         this.world = game.add.tilemap("map");
