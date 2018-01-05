@@ -5,14 +5,13 @@ GreenMushroom = function(game) {
     this.spawnMushroom = function(map) {
         // Cria sprite a partir da layer de objeto
         var mushroom = map.objects.object_layer.find(function(object){ if(object.name == 'green_mushroom') return object });
-        this.mushroom = this.game.add.sprite(mushroom.x, mushroom.y - 16, 'green_mushroom');
+        this.mushroom = this.game.add.sprite(mushroom.x, mushroom.y, 'green_mushroom');
 
         // Definições do corpo
         game.physics.arcade.enable(this.mushroom);
-        this.mushroom.body.setSize(20,20,54,10);
-        this.mushroom.body.checkCollision = {"left" : false, "right" : false, "down" : false, "up":true};
+        this.mushroom.body.setSize(35,30,46,0);
         this.mushroom.body.immovable = true;
-        this.mushroom.anchor.setTo(0.5);
+        this.mushroom.anchor.setTo(0,1);
 
         // Cria animação
         this.mushroom.animations.add('explode');

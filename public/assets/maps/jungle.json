@@ -786,8 +786,8 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":128,
-                 "x":6208,
+                 "width":32,
+                 "x":6240,
                  "y":416
                 }],
          "opacity":1,
