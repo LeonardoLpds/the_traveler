@@ -45,7 +45,7 @@ playGame.prototype = {
         // verifica movimentos do player
         this.player.move(this.gamepad.keys);
 
-            this.map.clouds.x = (this.player.player.position.x) / 3;
+        this.map.clouds.x = (this.player.player.position.x) / 5;
     },
 
     addAudios: function(){
