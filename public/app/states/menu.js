@@ -14,7 +14,8 @@ menu.prototype = {
         newGameText.anchor.setTo(0.5);
 
         newGameText.inputEnabled = true;
-        newGameText.events.onInputDown.add( () => this.game.state.start("Play Game") );
+        var map = new Grassland(game);
+        newGameText.events.onInputDown.add( () => this.game.state.start("Play Game", true, false, map) );
     },
 
     update: function () {

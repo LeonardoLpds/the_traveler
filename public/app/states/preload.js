@@ -35,7 +35,7 @@ preload.prototype = {
     // Carrega todos os assets
     loadAssets: function() {
         // Carregando mapa
-        this.game.load.tilemap('map', 'assets/maps/jungle.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.tilemap('grassland', 'assets/maps/grassland.json', null, Phaser.Tilemap.TILED_JSON);
 
         // Carregando Tilesets do mapa
         this.game.load.image('ground_brown', 'assets/tilesets/jungle/ground_brown.png');
