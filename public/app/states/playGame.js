@@ -55,10 +55,12 @@ playGame.prototype = {
 
     addAudios: function(){
         this.game.sounds = {
-            "bgm"   : game.add.audio("jungle_bgm"),
-            "jump"  : game.add.audio("jump"),
+            "bgm" : game.add.audio("jungle_bgm"),
+            "jump" : game.add.audio("jump"),
             "death" : game.add.audio("death"),
-            "coin" : game.add.audio("coin", 0.3)
+            "coin" : game.add.audio("coin", 0.3),
+            "green_mushroom_explode" : game.add.audio("green_mushroom_explode"),
+            "success" : game.add.audio("success")
         };
     }
 }

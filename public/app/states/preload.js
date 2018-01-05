@@ -64,6 +64,8 @@ preload.prototype = {
         this.game.load.audio("jump", "assets/sounds/effects/jump.ogg");
         this.game.load.audio("death", "assets/sounds/effects/death.ogg");
         this.game.load.audio("coin", "assets/sounds/effects/coin.ogg");
+        this.game.load.audio("green_mushroom_explode", "assets/sounds/effects/green_mushroom_explode.ogg");
+        this.game.load.audio("success", "assets/sounds/effects/success.ogg");
         this.game.load.audio("jungle_bgm", "assets/sounds/bgm/jungle.ogg");
 
         // Carregando botões

@@ -23,10 +23,18 @@ class Player {
 
         // Define método de morte do player
         this.player.death = function(){
-            game.sounds.bgm.stop();
-            game.sounds.death.play();
-            game.state.start("Game Over", false, false, this.game.state.callbackContext);
+            this.game.sounds.bgm.stop();
+            this.game.sounds.death.play();
+            this.game.state.start("Game Over", false, false, this.game.state.callbackContext);
         };
+
+        // Cria efeito de spawn
+        var spawnPoint = this.game.add.sprite(x, y + 32, 'green_mushroom');
+        spawnPoint.anchor.setTo(0.5,1);
+        this.game.sounds.green_mushroom_explode.play();
+        spawnPoint.animations.add('explode');
+        spawnPoint.animations.play('explode', 10, false, false);
+        this.player.body.velocity.y = -400;
     }
 
     _createAnimatons(){

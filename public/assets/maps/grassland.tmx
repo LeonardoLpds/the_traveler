@@ -180,7 +180,7 @@
  </layer>
  <objectgroup name="object_layer">
   <object id="1" type="coin" gid="208" x="224" y="192" width="32" height="21"/>
-  <object id="2" name="player" gid="221" x="96" y="96" width="32" height="32"/>
+  <object id="2" name="player" gid="221" x="96" y="192" width="32" height="32"/>
   <object id="3" type="coin" gid="208" x="272" y="192" width="32" height="21"/>
   <object id="4" type="coin" gid="208" x="320" y="192" width="32" height="21"/>
   <object id="5" type="coin" gid="208" x="688" y="192" width="32" height="21"/>

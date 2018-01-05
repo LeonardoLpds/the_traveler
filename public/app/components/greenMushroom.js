@@ -20,7 +20,7 @@ class GreenMushroom {
         this.mushroom.animations.frame = 0;
 
         // Cria evento de finalização
-        this.mushroom.events.onKilled.add(function(){
+        this.game.sounds.success.onStop.addOnce(function(){
             var map = new next_map(game);
             this.game.state.start("Play Game", true, false, map);
         }, this);
@@ -30,9 +30,10 @@ class GreenMushroom {
         if(!mushroom.body.touching.up) return false;
 
         this.game.sounds.bgm.stop();
-        this.game.sounds.death.play();
+        this.game.sounds.green_mushroom_explode.play();
+        this.game.sounds.success.play();
 
-        player.body.maxVelocity.x = 0;
+        player.kill();
 
         mushroom.body.enable = false;
         mushroom.animations.play('explode', 10, false, true);
