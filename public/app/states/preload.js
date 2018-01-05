@@ -57,6 +57,9 @@ preload.prototype = {
         this.game.load.image('cloud_7', 'assets/images/bg_cloud07.png');
         this.game.load.image('cloud_8', 'assets/images/bg_cloud08.png');
 
+        // Carrega mushroom
+        this.game.load.spritesheet('green_mushroom', 'assets/sprites/green_mushroom.png', 128, 32);
+
         // Carregando áudios
         this.game.load.audio("jump", "assets/sounds/effects/jump.ogg");
         this.game.load.audio("death", "assets/sounds/effects/death.ogg");

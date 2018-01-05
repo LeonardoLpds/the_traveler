@@ -1,8 +1,9 @@
 var playGame = function(game){
-    this.map     = new Map(game);
-    this.player  = new Player(game);
-    this.gamepad = new Gamepad(game);
-    this.coins   = new Coins(game);
+    this.map         = new Map(game);
+    this.player      = new Player(game);
+    this.gamepad     = new Gamepad(game);
+    this.coins       = new Coins(game);
+    this.finishPoint = new FinishPoint(game);
 }
 
 playGame.prototype = {
@@ -13,6 +14,9 @@ playGame.prototype = {
         // cria o mundo
         this.map.generateWorld();
         this.coins.spawnCoins(this.map.world);
+
+        // Cria o green mushroom
+        this.finishPoint.spawnFinishPoint(this.map.world);
 
         // cria o personagem
         var object = this.map.world.objects.object_layer.find(function(object){ if(object.name == 'player') return object });
@@ -31,6 +35,7 @@ playGame.prototype = {
 
     update: function() {
         // verifica colisões
+        game.physics.arcade.collide(this.player.player, this.finishPoint.point, this.finishPoint.finishLevel, null, this);
         game.physics.arcade.collide(this.player.player, this.map.layers.collisions);
         game.physics.arcade.overlap(this.player.player, this.coins.group, this.coins.collect, null, this);
 
