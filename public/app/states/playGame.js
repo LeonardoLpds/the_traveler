@@ -4,6 +4,7 @@ var playGame = function(game){
     this.gamepad        = new Gamepad(game);
     this.coins          = new Coins(game);
     this.green_mushroom = new GreenMushroom(game);
+    this.hud            = new Hud(game);
 }
 
 playGame.prototype = {
@@ -17,7 +18,12 @@ playGame.prototype = {
 
         // cria o mundo
         this.map.generateWorld();
-        this.coins.spawnCoins(this.map.world, this.map.objects_ids.coins);
+
+        // Cria o hud
+        this.hud.createHud();
+
+        // Cria as moedas
+        this.coins.spawnCoins(this.map.world, this.map.objects_ids.coins, this.hud);
 
         // Cria o green mushroom
         this.green_mushroom.spawnMushroom(this.map.world, this.map.next_stage);
