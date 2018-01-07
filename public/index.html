@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Traveler</title>
 
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
     <script src="lib/register-sw.js"></script>
 
-    <link rel="manifest" href="manifest.json">
-
+    <!-- GAME STATES -->
     <script src="vendor/phaser/phaser.js"></script>
     <script src="app/states/boot.js"></script>
     <script src="app/states/preload.js"></script>
@@ -17,13 +18,19 @@
     <script src="app/states/playGame.js"></script>
     <script src="app/states/gameOver.js"></script>
 
+    <!-- COMPONENTS PRINCIPAIS -->
     <script src="app/components/gamepad.js"></script>
     <script src="app/components/map.js"></script>
     <script src="app/components/player.js"></script>
     <script src="app/components/coins.js"></script>
     <script src="app/components/greenMushroom.js"></script>
     <script src="app/components/hud.js"></script>
+    
+    <!-- INIMIGOS -->
+    <script src="app/components/enemies.js"></script>
+    <script src="app/components/enemies/bee.js"></script>
 
+    <!-- MAPAS -->
     <script src="app/components/grassland.js"></script>
 </head>
 <body style="margin: 0px; padding: 0px;">

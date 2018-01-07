@@ -78,6 +78,9 @@ preload.prototype = {
 
         // Carregando moedas
         this.game.load.spritesheet('coin', 'assets/sprites/coin_gold.png', 32, 21);
+
+        // Carregando inimigos
+        this.game.load.spritesheet("bee", "assets/sprites/bee.png", 64, 64);
     },
 
     // Diz a aplicação que as fontes foram carregadas

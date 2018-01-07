@@ -5,6 +5,7 @@ var playGame = function(game){
     this.coins          = new Coins(game);
     this.green_mushroom = new GreenMushroom(game);
     this.hud            = new Hud(game);
+    this.enemies        = new Enemies(game);
 }
 
 playGame.prototype = {
@@ -24,6 +25,9 @@ playGame.prototype = {
 
         // Cria as moedas
         this.coins.spawnCoins(this.map.world, this.map.objects_ids.coins, this.hud);
+
+        // Cria os inimigos
+        this.enemies.spawnEnemies(this.map.enemies);
 
         // Cria o green mushroom
         this.green_mushroom.spawnMushroom(this.map.world, this.map.next_stage);
@@ -46,8 +50,10 @@ playGame.prototype = {
     update: function() {
         // verifica colisões
         game.physics.arcade.collide(this.player.player, this.map.layers.collisions);
-        game.physics.arcade.overlap(this.player.player, this.coins.group, this.coins.collectCoin, null, this);
         game.physics.arcade.collide(this.player.player, this.green_mushroom.mushroom, this.green_mushroom.explode, null, this);
+        
+        game.physics.arcade.overlap(this.player.player, this.coins.group, this.coins.collectCoin, null, this);
+        game.physics.arcade.overlap(this.player.player, this.enemies.group, this.enemies.checkCollision, null, this);
 
         // define a camera
         game.camera.follow(this.player.player, Phaser.Camera.FOLLOW_PLATFORMER);

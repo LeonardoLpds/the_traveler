@@ -6,6 +6,7 @@ class Grassland extends Map{
         this.layers_names = ["water","water_objects","main_back","main","bridge_back","bridge_front","collisions"];
         this.tiles        = {"block" : 203, "top" : 200, "kill" : 227}
         this.objects_ids  = {"coins" : 208};
+        this.enemies      = [{"type":Bee,"areas":[{"x":500,"y":150,"v":true}]}];
         this.next_stage   = Grassland;
 
         this.clouds_positions = [{x:100, y:0, id:1},{x:300, y:100, id:2},{x:800, y:100,id:3},{x:1000, y:200,id:7},{x:1400, y:0,id:5},{x:1600, y:0,id:8},{x:1700, y:100,id:6},{x:2200, y:50,id:6},{x:2500, y:-30,id:8},{x:3000, y:200,id:2},{x:3600, y:50,id:6},{x:4500, y:0,id:2},{x:4700, y:150,id:1}];
