@@ -66,6 +66,8 @@ preload.prototype = {
         this.game.load.audio("coin", "assets/sounds/effects/coin.ogg");
         this.game.load.audio("green_mushroom_explode", "assets/sounds/effects/green_mushroom_explode.ogg");
         this.game.load.audio("success", "assets/sounds/effects/success.ogg");
+        this.game.load.audio("explosion_b", "assets/sounds/effects/explosion_b.ogg");
+        this.game.load.audio("hurt", "assets/sounds/effects/hurt.ogg");
         this.game.load.audio("jungle_bgm", "assets/sounds/bgm/jungle.ogg");
 
         // Carregando botões
@@ -84,6 +86,9 @@ preload.prototype = {
 
         // Carregando inimigos
         this.game.load.spritesheet("bee", "assets/sprites/bee.png", 64, 64);
+
+        // Carregando efeitos
+        this.game.load.spritesheet("explosion_b", "assets/sprites/explosion_b.png", 48, 48);
     },
 
     // Diz a aplicação que as fontes foram carregadas

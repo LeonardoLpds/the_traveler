@@ -72,7 +72,9 @@ playGame.prototype = {
             "death" : game.add.audio("death"),
             "coin" : game.add.audio("coin", 0.3),
             "green_mushroom_explode" : game.add.audio("green_mushroom_explode"),
-            "success" : game.add.audio("success")
+            "success" : game.add.audio("success"),
+            "explosion_b" : game.add.audio("explosion_b"),
+            "hurt" : game.add.audio("hurt")
         };
     }
 }

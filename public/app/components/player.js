@@ -49,6 +49,7 @@ class Player {
         if (this.player.hurting) return;
 
         this.player.health--;
+        this.game.sounds.hurt.play();
         hud.loseHeart();
         if (this.player.health < 1) { this.player.death(); return; }
 

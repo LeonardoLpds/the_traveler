@@ -32,6 +32,12 @@ class Enemies{
     }
 
     death(enemy){
+        var explosion = this.game.add.sprite(enemy.x, enemy.y, 'explosion_b');
+        explosion.anchor.setTo(0.5);
+        this.game.sounds.explosion_b.play();
+        explosion.animations.add('explode');
+        explosion.animations.play('explode', 12, false, false);
+
         enemy.kill();
     }
 }
