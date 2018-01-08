@@ -5,6 +5,9 @@ boot.prototype = {
         //
     },
     create: function () {
+        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.game.scale.refresh();
+
         this.game.state.start("Preload");
     }
 }

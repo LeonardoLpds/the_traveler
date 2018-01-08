@@ -1,5 +1,9 @@
+var innerWidth = window.innerWidth;
+var innerHeight = window.innerHeight;
+var gameRatio = innerWidth / innerHeight;
+
 // Criando o game
-var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS);
+var game = new Phaser.Game(Math.floor(400 * gameRatio), 400, Phaser.CANVAS);
 
 // Adicionando states
 game.state.add("Boot", boot);
