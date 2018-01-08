@@ -4,7 +4,7 @@ class Player {
         this.player = null;
     }
 
-    spawnPlayer(x, y){
+    spawnPlayer(x, y, hud){
         // Cria o player
         this.player = this.game.add.sprite(x, y, 'player');
 
@@ -15,26 +15,17 @@ class Player {
         this.game.physics.arcade.enable(this.player);
 
         // Definições do corpo
-        this.player.body.gravity.y = 1400;
-        this.player.body.setSize(32,60,16,4);
-        this.player.animations.play("idle");
-        this.player.anchor.setTo(0.5);
-        this.player.body.maxVelocity.y = 1000;
+        this._createPlayerBody();
 
         // Define método de morte do player
-        this.player.death = function(){
-            this.game.sounds.bgm.stop();
-            this.game.sounds.death.play();
-            this.game.state.start("Game Over", false, false, this.game.state.callbackContext);
-        };
+        this.player.death = () => this._playerDeath();
+
+        // Cria mecanica de vida (health)
+        this.player.health = 3;
+        this.player.hurt = () => this._hurtPlayer(hud);
 
         // Cria efeito de spawn
-        var spawnPoint = this.game.add.sprite(x, y + 32, 'green_mushroom');
-        spawnPoint.anchor.setTo(0.5,1);
-        this.game.sounds.green_mushroom_explode.play();
-        spawnPoint.animations.add('explode');
-        spawnPoint.animations.play('explode', 10, false, false);
-        this.player.body.velocity.y = -400;
+        this._playSpawnEffect(x, y);
     }
 
     _createAnimatons(){
@@ -46,10 +37,58 @@ class Player {
         this.player.animations.add('run', [38, 39, 40, 41, 42, 43], 12, true);
     }
 
+    _createPlayerBody(){
+        this.player.body.gravity.y = 1400;
+        this.player.body.setSize(32,60,16,4);
+        this.player.animations.play("idle");
+        this.player.anchor.setTo(0.5);
+        this.player.body.maxVelocity.y = 1000;
+    }
+
+    _hurtPlayer(hud) {
+        if (this.player.hurting) return;
+
+        this.player.health--;
+        hud.loseHeart();
+        if (this.player.health < 1) { this.player.death(); return; }
+
+        this.player.hurting = true;
+        this.player.tint = 0xff0000;
+        this.game.add.tween(this.player).to( { alpha: 0 }, 100, null, true, 0, 10, false);
+
+        setTimeout(()=>{
+            this.player.hurting = false;
+            this.player.tint = 0xFFFFFF;
+            this.game.add.tween(this.player).to( { alpha: 1 }, 0, null, true, 0, 0, false);
+        }, 1000);
+
+        this.player.body.velocity.x = (this.player.scale.x == 1) ? -200 : 200;
+        this.player.body.velocity.y = -500;
+    }
+
+    _playerDeath(){
+        this.game.sounds.bgm.stop();
+        this.game.sounds.death.play();
+        this.game.state.start("Game Over", false, false, this.game.state.callbackContext);
+    }
+
+    _playSpawnEffect(x, y){
+        var spawnPoint = this.game.add.sprite(x, y + 32, 'green_mushroom');
+        spawnPoint.anchor.setTo(0.5,1);
+        this.game.sounds.green_mushroom_explode.play();
+        spawnPoint.animations.add('explode');
+        spawnPoint.animations.play('explode', 10, false, false);
+        this.player.body.velocity.y = -400;
+    }
+
     move(keys, sounds){
+        if(this.player.hurting) {
+            this.player.animations.play("fall"); return;
+        }
+
         // Pulo
         if (keys.up.isDown && this.player.body.onFloor()) {
-            game.sounds.jump.play();
+            this.game.sounds.jump.play();
             this.player.body.velocity.y = -500;
         }
 
@@ -97,6 +136,5 @@ class Player {
             this.player.animations.play("idle");
         }
     }
-
 
 }

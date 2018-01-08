@@ -79,6 +79,9 @@ preload.prototype = {
         // Carregando moedas
         this.game.load.spritesheet('coin', 'assets/sprites/coin_gold.png', 32, 21);
 
+        // Carregando corações (heart)
+        this.game.load.spritesheet('heart', 'assets/sprites/heart.png', 36, 32, 3, 0, 2);
+
         // Carregando inimigos
         this.game.load.spritesheet("bee", "assets/sprites/bee.png", 64, 64);
     },

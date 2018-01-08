@@ -34,7 +34,7 @@ playGame.prototype = {
 
         // cria o personagem
         var object = this.map.world.objects.object_layer.find(function(object){ if(object.name == 'player') return object });
-        this.player.spawnPlayer(object.x, object.y);
+        this.player.spawnPlayer(object.x, object.y, this.hud);
 
         // Detalhes especiais de cada mapa
         this.map.especials();
@@ -51,7 +51,7 @@ playGame.prototype = {
         // verifica colisões
         game.physics.arcade.collide(this.player.player, this.map.layers.collisions);
         game.physics.arcade.collide(this.player.player, this.green_mushroom.mushroom, this.green_mushroom.explode, null, this);
-        
+
         game.physics.arcade.overlap(this.player.player, this.coins.group, this.coins.collectCoin, null, this);
         game.physics.arcade.overlap(this.player.player, this.enemies.group, this.enemies.checkCollision, null, this);
 
