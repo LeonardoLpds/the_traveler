@@ -25,9 +25,9 @@ class Coins {
     }
 
     collectCoin(player, coin) {
+        this.game.sounds.coin.play();
         coin.kill();
         this.coins.score += 1;
         this.hud.coinCount.text = this.coins.score + "/" + this.coins.total;
-        this.game.sounds.coin.play();
     }
 }
