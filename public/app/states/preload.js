@@ -38,14 +38,17 @@ preload.prototype = {
         this.game.load.tilemap('grassland', 'assets/maps/grassland.json', null, Phaser.Tilemap.TILED_JSON);
 
         // Carregando Tilesets do mapa
-        this.game.load.image('ground_brown', 'assets/tilesets/jungle/ground_brown.png');
-        this.game.load.image('water',        'assets/tilesets/jungle/water.png');
-        this.game.load.image('bottom_water', 'assets/tilesets/jungle/bottom_water.png');
-        this.game.load.image('wall_brown',   'assets/tilesets/jungle/wall_brown.png');
-        this.game.load.image('bridge',       'assets/tilesets/jungle/bridge.png');
-        this.game.load.image('bottom_brown', 'assets/tilesets/jungle/bottom_brown.png');
-        this.game.load.image('slopes_brown', 'assets/tilesets/jungle/slopes_brown.png');
-        this.game.load.image('collisions',   'assets/tilesets/collisions.png');
+        this.game.load.image('ground_brown',   'assets/tilesets/jungle/ground_brown.png');
+        this.game.load.image('water',          'assets/tilesets/jungle/water.png');
+        this.game.load.image('bottom_water',   'assets/tilesets/jungle/bottom_water.png');
+        this.game.load.image('wall_brown',     'assets/tilesets/jungle/wall_brown.png');
+        this.game.load.image('bridge',         'assets/tilesets/jungle/bridge.png');
+        this.game.load.image('bottom_brown',   'assets/tilesets/jungle/bottom_brown.png');
+        this.game.load.image('slopes_brown',   'assets/tilesets/jungle/slopes_brown.png');
+        this.game.load.image('plants_objects', 'assets/tilesets/jungle/plants_objects.png');
+        this.game.load.image('tree_light',     'assets/tilesets/jungle/tree_light.png');
+        
+        this.game.load.image('collisions',     'assets/tilesets/collisions.png');
 
         // Carregando nuvens
         this.game.load.image('cloud_1', 'assets/images/bg_cloud01.png');
@@ -86,6 +89,7 @@ preload.prototype = {
 
         // Carregando inimigos
         this.game.load.spritesheet("bee", "assets/sprites/bee.png", 64, 64);
+        this.game.load.spritesheet("leafbug", "assets/sprites/leafbug.png", 64, 64);
 
         // Carregando efeitos
         this.game.load.spritesheet("explosion_b", "assets/sprites/explosion_b.png", 48, 48);
