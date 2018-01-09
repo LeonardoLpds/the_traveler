@@ -78,6 +78,8 @@ preload.prototype = {
         this.game.load.spritesheet('btn_left', 'assets/sprites/buttons/right.png', 64, 64);
         this.game.load.spritesheet('btn_up', 'assets/sprites/buttons/right.png', 64, 64);
 
+        this.game.load.spritesheet('new-game', 'assets/sprites/new-game.png', 104, 30);
+
         // Carregando player
         this.game.load.spritesheet('player', 'assets/sprites/traveler.png', 64, 64);
 

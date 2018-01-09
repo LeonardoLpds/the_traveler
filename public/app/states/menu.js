@@ -1,21 +1,17 @@
-var menu = function(game) {
-    this.fontStyle = { font : "Press Start 2P", fontSize : 30, fill : "#FFF", align: "center" };
-};
+var menu = function(game) { };
 
 menu.prototype = {
     create: function () {
-        var newGameText = game.add.text(
-            this.world.centerX,
-            this.world.centerY,
-            "Novo Jogo",
-            this.fontStyle
-        );
 
-        newGameText.anchor.setTo(0.5);
-
-        newGameText.inputEnabled = true;
+        var new_game = this.game.add.sprite(this.world.centerX, this.world.centerY, 'new-game');
+        new_game.anchor.setTo(0.5);
+        new_game.animations.add('idle')
+        new_game.play('idle', 8, true);
+        new_game.scale.setTo(1.5);
+        
+        new_game.inputEnabled = true;
         var map = new Grassland(game);
-        newGameText.events.onInputDown.add( () => this.game.state.start("Play Game", true, false, map) );
+        new_game.events.onInputDown.add( () => this.game.state.start("Play Game", true, false, map) );
     },
 
     update: function () {
