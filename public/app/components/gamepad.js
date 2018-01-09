@@ -14,7 +14,9 @@ class Gamepad {
         };
 
         // Mapeando botões da tela
-        this._createButtons();
+        if(!this.game.device.desktop){
+            this._createButtons();
+        }
 
         // Ativa a habilidade de corrida
         this._enableRun();
@@ -46,11 +48,11 @@ class Gamepad {
         this.keys.left.timer = this.game.time.create();
 
         // Direita
-        this.buttons.right.onInputDown.add( function() { this._checkRunKey( this.keys.right ) }, this);
+        if(!this.game.device.desktop) this.buttons.right.onInputDown.add( function() { this._checkRunKey( this.keys.right ) }, this);
         this.keys.right.onDown.add( function() { this._checkRunKey( this.keys.right ) }, this);
 
         // Esquerda
-        this.buttons.left.onInputDown.add( function() { this._checkRunKey( this.keys.left ) }, this);
+        if(!this.game.device.desktop) this.buttons.left.onInputDown.add( function() { this._checkRunKey( this.keys.left ) }, this);
         this.keys.left.onDown.add( function() { this._checkRunKey( this.keys.left ) }, this);
     }
 
