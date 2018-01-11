@@ -81,7 +81,7 @@ preload.prototype = {
         this.game.load.spritesheet('new-game', 'assets/sprites/new-game.png', 104, 30);
 
         // Carregando player
-        this.game.load.spritesheet('player', 'assets/sprites/traveler.png', 64, 64);
+        this.game.load.spritesheet('player', 'assets/sprites/fox.png', 32, 32, 13, 0, 1);
         this.game.load.spritesheet('ghost', 'assets/sprites/ghost.png', 64, 64, 13);
 
         // Carregando moedas

@@ -29,17 +29,15 @@ class Player {
     }
 
     _createAnimatons(){
-        this.player.animations.add('idle', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
-        this.player.animations.add('walk', [8, 9, 10, 11, 12, 13, 14, 15], 10, true);
-        this.player.animations.add('jump', [18, 19, 20, 21, 22, 23, 24, 25], 10, true);
-        this.player.animations.add('fall', [28, 29, 30, 31, 32, 33, 34, 35], 10, true);
-        this.player.animations.add('death', [36, 37], 5, true);
-        this.player.animations.add('run', [38, 39, 40, 41, 42, 43], 12, true);
+        this.player.animations.add('idle', [0, 1, 2, 3], 10, true);
+        this.player.animations.add('walk', [4,5,6,7,8,9], 10, true);
+        this.player.animations.add('jump', [11], 10, true);
+        this.player.animations.add('fall', [12], 10, true);
     }
 
     _createPlayerBody(){
         this.player.body.gravity.y = 1400;
-        this.player.body.setSize(32,60,16,4);
+        this.player.body.setSize(18,20,6,12);
         this.player.animations.play("idle");
         this.player.anchor.setTo(0.5);
         this.player.body.maxVelocity.y = 1000;
@@ -122,7 +120,7 @@ class Player {
         } else if (this.player.body.velocity.y > 0) {
             this.player.animations.play("fall");
         } else if (Math.abs(this.player.body.velocity.x) > 100) {
-            this.player.animations.play("run");
+            this.player.animations.play("walk");
         } else {
             this.player.animations.play("walk");
         }
