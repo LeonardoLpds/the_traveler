@@ -14,6 +14,8 @@ playGame.prototype = {
     },
 
     create: function () {
+        game.time.advancedTiming = true;
+
         // Carrega os áudios
         this.addAudios();
 
@@ -76,5 +78,9 @@ playGame.prototype = {
             "explosion_b" : game.add.audio("explosion_b"),
             "hurt" : game.add.audio("hurt")
         };
+    },
+
+    render: function(){
+        game.debug.text('render FPS: ' + (game.time.fps || '--') , 2, 14, "#00ff00");
     }
 }

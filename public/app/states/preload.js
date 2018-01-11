@@ -47,7 +47,7 @@ preload.prototype = {
         this.game.load.image('slopes_brown',   'assets/tilesets/jungle/slopes_brown.png');
         this.game.load.image('plants_objects', 'assets/tilesets/jungle/plants_objects.png');
         this.game.load.image('tree_light',     'assets/tilesets/jungle/tree_light.png');
-        
+
         this.game.load.image('collisions',     'assets/tilesets/collisions.png');
 
         // Carregando nuvens
@@ -82,6 +82,7 @@ preload.prototype = {
 
         // Carregando player
         this.game.load.spritesheet('player', 'assets/sprites/traveler.png', 64, 64);
+        this.game.load.spritesheet('ghost', 'assets/sprites/ghost.png', 64, 64, 13);
 
         // Carregando moedas
         this.game.load.spritesheet('coin', 'assets/sprites/coin_gold.png', 32, 21);

@@ -19,6 +19,7 @@ class Map {
         // Cria todas as layers do mapa
         this.layers_names.forEach(function(layer){
             this.layers[layer] = this.world.createLayer(layer);
+            this.layers[layer].renderSettings.enableScrollDelta = false;
         }, this);
 
         // Cria colisões
