@@ -1,16 +1,15 @@
-var menu = function(game) { };
+var menu = function(game) {
+    this.fontStyle = { font : "Press Start 2P", fontSize : 10, fill : "#FFF", align: "center" };
+};
 
 menu.prototype = {
     create: function () {
 
-        var new_game = this.game.add.sprite(this.world.centerX, this.world.centerY, 'new-game');
+        var new_game = game.add.text(this.world.centerX, this.world.centerY, "Novo jogo", this.fontStyle);
         new_game.anchor.setTo(0.5);
-        new_game.animations.add('idle')
-        new_game.play('idle', 8, true);
-        new_game.scale.setTo(1.5);
-        
+
         new_game.inputEnabled = true;
-        var map = new Grassland(game);
+        var map = new Forest(game);
         new_game.events.onInputDown.add( () => this.game.state.start("Play Game", true, false, map) );
     },
 

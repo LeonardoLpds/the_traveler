@@ -3,7 +3,6 @@ var playGame = function(game){
     this.player         = new Player(game);
     this.gamepad        = new Gamepad(game);
     this.coins          = new Coins(game);
-    this.green_mushroom = new GreenMushroom(game);
     this.hud            = new Hud(game);
     this.enemies        = new Enemies(game);
 }
@@ -31,9 +30,6 @@ playGame.prototype = {
         // Cria os inimigos
         this.enemies.spawnEnemies(this.map.enemies);
 
-        // Cria o green mushroom
-        this.green_mushroom.spawnMushroom(this.map.world, this.map.next_stage);
-
         // cria o personagem
         var object = this.map.world.objects.object_layer.find(function(object){ if(object.name == 'player') return object });
         this.player.spawnPlayer(object.x, object.y, this.hud);
@@ -52,7 +48,6 @@ playGame.prototype = {
     update: function() {
         // verifica colisões
         game.physics.arcade.collide(this.player.player, this.map.layers.collisions);
-        game.physics.arcade.collide(this.player.player, this.green_mushroom.mushroom, this.green_mushroom.explode, null, this);
 
         game.physics.arcade.overlap(this.player.player, this.coins.group, this.coins.collectCoin, null, this);
         game.physics.arcade.overlap(this.player.player, this.enemies.group, this.enemies.checkCollision, null, this);
@@ -69,7 +64,7 @@ playGame.prototype = {
 
     addAudios: function(){
         this.game.sounds = {
-            "bgm" : game.add.audio("jungle_bgm"),
+            "bgm" : game.add.audio("forest_bgm"),
             "jump" : game.add.audio("jump"),
             "death" : game.add.audio("death"),
             "coin" : game.add.audio("coin", 0.3),

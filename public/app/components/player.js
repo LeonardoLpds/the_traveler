@@ -23,9 +23,6 @@ class Player {
         // Cria mecanica de vida (health)
         this.player.health = 3;
         this.player.hurt = () => this._hurtPlayer(hud);
-
-        // Cria efeito de spawn
-        this._playSpawnEffect(x, y);
     }
 
     _createAnimatons(){
@@ -69,15 +66,6 @@ class Player {
         this.game.sounds.bgm.stop();
         this.game.sounds.death.play();
         this.game.state.start("Game Over", false, false, this.game.state.callbackContext);
-    }
-
-    _playSpawnEffect(x, y){
-        var spawnPoint = this.game.add.sprite(x, y + 32, 'green_mushroom');
-        spawnPoint.anchor.setTo(0.5,1);
-        this.game.sounds.green_mushroom_explode.play();
-        spawnPoint.animations.add('explode');
-        spawnPoint.animations.play('explode', 10, false, false);
-        this.player.body.velocity.y = -400;
     }
 
     move(keys, sounds){
