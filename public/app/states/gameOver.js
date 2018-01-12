@@ -15,7 +15,7 @@ gameOver.prototype = {
         this.obj.player.player.scale.x = old.scale.x;
         this.obj.player.player.anchor.setTo(0.5);
         this.obj.player.player.animations.add('death');
-        this.obj.player.player.animations.play('death', 15, true);
+        this.obj.player.player.animations.play('death', 7, true);
 
         var player_tween = game.add.tween(this.obj.player.player).to({alpha: 0}, 5000, Phaser.Easing.Linear.None, true);
         this.game.physics.arcade.enable(this.obj.player.player);
