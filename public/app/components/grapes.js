@@ -8,9 +8,12 @@ class Grapes {
         // Criando grupo
         this.group = this.game.add.group();
         this.group.enableBody = true;
-
+        
         // Criando uvas a partir da layer de objetos
         map.createFromObjects('object_layer', gid, 'grape', 0, true, false, this.group);
+        
+        this.group.callAll('animations.add', 'animations', 'shine');
+        this.group.callAll('animations.play', 'animations', 'shine', 7, true);
 
         // Armazenando total de uvas e zerando pontos
         this.total = this.group.children.length;
