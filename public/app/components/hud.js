@@ -15,11 +15,10 @@ class Hud {
 
         // Cria contator de vida
         this.heartGroup = this.game.add.group();
-        [40, 70, 100].forEach(x => {
+        [20, 30, 40].forEach(x => {
             var hearh = this.game.add.sprite(this.game.width - x, 20, 'heart', 0, this.heartGroup);
             hearh.frame = 0;
             hearh.anchor.setTo(0.5);
-            hearh.scale.setTo(0.5);
         });
 
         this.heartGroup.fixedToCamera = true;
