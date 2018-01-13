@@ -45,7 +45,7 @@ preload.prototype = {
         // Carregando áudios
         this.game.load.audio("jump", "assets/sounds/effects/jump.ogg");
         this.game.load.audio("death", "assets/sounds/effects/death.ogg");
-        this.game.load.audio("grape", "assets/sounds/effects/grape.ogg");
+        this.game.load.audio("grape", "assets/sounds/effects/bite.ogg");
         this.game.load.audio("success", "assets/sounds/effects/success.ogg");
         this.game.load.audio("explosion_b", "assets/sounds/effects/explosion_b.ogg");
         this.game.load.audio("hurt", "assets/sounds/effects/hurt.ogg");
