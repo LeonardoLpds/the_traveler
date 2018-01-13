@@ -2,7 +2,7 @@ var playGame = function(game){
     this.map            = {};
     this.player         = new Player(game);
     this.gamepad        = new Gamepad(game);
-    this.coins          = new Coins(game);
+    this.grapes         = new Grapes(game);
     this.hud            = new Hud(game);
     this.enemies        = new Enemies(game);
 }
@@ -24,8 +24,8 @@ playGame.prototype = {
         // Cria o hud
         this.hud.createHud();
 
-        // Cria as moedas
-        this.coins.spawnCoins(this.map.world, this.map.objects_ids.coins, this.hud);
+        // Cria as uvas
+        this.grapes.spawnGrapes(this.map.world, this.map.objects_ids.grapes, this.hud);
 
         // Cria os inimigos
         this.enemies.spawnEnemies(this.map.enemies);
@@ -49,7 +49,7 @@ playGame.prototype = {
         // verifica colisões
         game.physics.arcade.collide(this.player.player, this.map.layers.collisions);
 
-        game.physics.arcade.overlap(this.player.player, this.coins.group, this.coins.collectCoin, null, this);
+        game.physics.arcade.overlap(this.player.player, this.grapes.group, this.grapes.collectGrape, null, this);
         game.physics.arcade.overlap(this.player.player, this.enemies.group, this.enemies.checkCollision, null, this);
 
         // define a camera
@@ -67,8 +67,7 @@ playGame.prototype = {
             "bgm" : game.add.audio("forest_bgm"),
             "jump" : game.add.audio("jump"),
             "death" : game.add.audio("death"),
-            "coin" : game.add.audio("coin", 0.3),
-            "green_mushroom_explode" : game.add.audio("green_mushroom_explode"),
+            "grape" : game.add.audio("grape", 0.3),
             "success" : game.add.audio("success"),
             "explosion_b" : game.add.audio("explosion_b"),
             "hurt" : game.add.audio("hurt")
@@ -76,6 +75,6 @@ playGame.prototype = {
     },
 
     render: function(){
-        game.debug.text('render FPS: ' + (game.time.fps || '--') , 2, 14, "#00ff00");
+        // game.debug.text('render FPS: ' + (game.time.fps || '--') , 2, 14, "#00ff00");
     }
 }

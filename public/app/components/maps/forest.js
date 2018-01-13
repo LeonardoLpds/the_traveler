@@ -5,7 +5,7 @@ class Forest extends Map{
         this.tilesets     = ["forest_tileset", "collisions"];
         this.layers_names = ["main","collisions"];
         this.tiles        = {"block" : 582, "top" : 576, "kill" : 678}
-        this.objects_ids  = {"coins" : 608};
+        this.objects_ids  = {"grapes" : 676};
         this.enemies      = [];
         this.next_stage   = Forest;
     }

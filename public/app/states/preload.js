@@ -45,7 +45,7 @@ preload.prototype = {
         // Carregando áudios
         this.game.load.audio("jump", "assets/sounds/effects/jump.ogg");
         this.game.load.audio("death", "assets/sounds/effects/death.ogg");
-        this.game.load.audio("coin", "assets/sounds/effects/coin.ogg");
+        this.game.load.audio("grape", "assets/sounds/effects/grape.ogg");
         this.game.load.audio("success", "assets/sounds/effects/success.ogg");
         this.game.load.audio("explosion_b", "assets/sounds/effects/explosion_b.ogg");
         this.game.load.audio("hurt", "assets/sounds/effects/hurt.ogg");
@@ -61,7 +61,6 @@ preload.prototype = {
         this.game.load.spritesheet('ghost', 'assets/sprites/players/fox_ghost.png', 32, 38, 8);
 
         // Carregando moedas
-        this.game.load.spritesheet('coin', 'assets/sprites/items/coin.png', 32, 21);
         this.game.load.spritesheet('grape', 'assets/sprites/items/grape.png', 16, 16);
 
         // Carregando corações (heart)
