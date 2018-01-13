@@ -62,6 +62,7 @@ preload.prototype = {
 
         // Carregando moedas
         this.game.load.spritesheet('coin', 'assets/sprites/items/coin.png', 32, 21);
+        this.game.load.spritesheet('grape', 'assets/sprites/items/grape.png', 16, 16);
 
         // Carregando corações (heart)
         this.game.load.spritesheet('heart', 'assets/sprites/hud/heart.png', 36, 32, 3, 0, 2);
