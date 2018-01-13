@@ -1,7 +1,7 @@
 class Hud {
     constructor(game){
         this.game = game;
-        this.fontStyle = { font : "Press Start 2P", fontSize : 7, fill : "#FFF", align: "center" };
+        this.fontStyle = { font : "Press Start 2P", fontSize : 8, fill : "#FFF", align: "center" };
     }
 
     createHud(){
